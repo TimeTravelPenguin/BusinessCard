@@ -82,6 +82,7 @@
         </Popup>
       </Grid>
     </Border>
+
     <ControlTemplate.Triggers>
       <Trigger Property="IsSuspendingPopupAnimation" Value="True">
         <Setter TargetName="PART_Popup" Property="PopupAnimation" Value="None" />

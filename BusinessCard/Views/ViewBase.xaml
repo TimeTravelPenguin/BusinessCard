@@ -135,8 +135,7 @@
             Grid.ColumnSpan="8"
             HorizontalAlignment="Center"
             Content="{Binding WindowTitle}"
-            Style="{StaticResource UIFont}"
-            Visibility="Hidden" />
+            Style="{StaticResource UIFont}" />
 
           <Button
             Grid.Column="5"
@@ -200,8 +199,7 @@
       Grid.Row="2"
       HorizontalContentAlignment="Stretch"
       VerticalContentAlignment="Stretch"
-      Content="{Binding CurrentPage}"
-      Visibility="Hidden" />
+      Content="{Binding CurrentPage}" />
 
     <!--  Status bar  -->
     <StatusBar

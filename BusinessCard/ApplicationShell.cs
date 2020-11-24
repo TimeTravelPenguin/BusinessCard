@@ -16,7 +16,7 @@ namespace BusinessCard
       var view = new ViewBase();
       var vm = new DefaultPageViewModel(view)
       {
-        WindowTitle = "Phillip Employment Manager",
+        WindowTitle = "Phillip Smith Business Contact",
         CurrentPage = new DefaultPageView()
       };
 

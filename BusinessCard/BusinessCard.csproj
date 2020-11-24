@@ -68,6 +68,7 @@
     <Compile Include="ApplicationShell.cs" />
     <Compile Include="BaseTypes\PropertyChangedBase.cs" />
     <Compile Include="Behaviors\WindowDragBehavior.cs" />
+    <Compile Include="Extensions\TextExtension.cs" />
     <Compile Include="Font\MaterialIcons.cs" />
     <Compile Include="Font\WebdingsIcons.cs" />
     <Compile Include="ViewModels\DefaultPageViewModel.cs" />
@@ -121,6 +122,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\NugetText.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

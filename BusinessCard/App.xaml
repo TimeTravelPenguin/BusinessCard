@@ -19,10 +19,23 @@
       <Brush x:Key="BrushText">#ededed</Brush>
 
       <Style x:Key="UIFont" TargetType="{x:Type Label}">
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="Foreground" Value="{StaticResource BrushText}" />
+      </Style>
+
+      <Style x:Key="UICodeFont" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="Foreground" Value="{StaticResource BrushText}" />
+        <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+      </Style>
+
+      <Style x:Key="UITextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="Foreground" Value="{StaticResource BrushText}" />
+        <Setter Property="TextWrapping" Value="WrapWithOverflow" />
       </Style>
     </ResourceDictionary>
   </Application.Resources>

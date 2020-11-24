@@ -7,14 +7,16 @@
 // File Name: DefaultPageViewModel.cs
 // 
 // Current Data:
-// 2020-11-23 11:49 PM
+// 2020-11-24 12:31 PM
 // 
 // Creation Date:
 // 2020-11-23 11:34 PM
 
 #endregion
 
+using System.Diagnostics;
 using System.Windows;
+using Microsoft.Expression.Interactivity.Core;
 
 namespace BusinessCard.ViewModels
 {

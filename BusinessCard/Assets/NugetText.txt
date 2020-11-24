@@ -1,0 +1,12 @@
+﻿PM> Install-Package PhillipSmith
+
+Attempting to gather dependency information for package 'PhillipSmith.96.9.1'
+Gathering dependency information took 11 ms
+  GET https://www.nuget.org/api/v2/FindPackagesById()?id='PhillipSmith'
+  OK https://www.nuget.org/api/v2/FindPackagesById()?id='PhillipSmith' 220ms
+Adding package 'PhillipSmith.96.9.1' to 'packages.config'
+Successfully installed 'PhillipSmith.96.9.1' to WPFBusinessCard
+Executing nuget actions took 1.44 sec
+Time Elapsed: 00:00:02.6268355
+
+PM>
