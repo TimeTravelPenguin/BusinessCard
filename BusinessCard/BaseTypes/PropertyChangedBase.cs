@@ -2,15 +2,15 @@
 
 // Name: Phillip Smith
 // 
-// Solution: HoneWPF
-// Project: HoneWPF
+// Solution: BusinessCard
+// Project: BusinessCard
 // File Name: PropertyChangedBase.cs
 // 
 // Current Data:
-// 2020-08-14 6:53 PM
+// 2020-11-24 5:50 PM
 // 
 // Creation Date:
-// 2020-08-14 5:51 PM
+// 2020-11-23 11:38 PM
 
 #endregion
 

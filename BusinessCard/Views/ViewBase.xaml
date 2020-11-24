@@ -13,8 +13,7 @@
   Height="494"
   MinWidth="400"
   MinHeight="100"
-  d:DataContext="{d:DesignInstance Type=viewModels:ViewModelBase,
-                                   IsDesignTimeCreatable=False}"
+  d:DataContext="{d:DesignInstance Type=viewModels:ViewModelBase}"
   AllowsTransparency="True"
   Background="{StaticResource BrushWindowBackground}"
   BorderBrush="Black"

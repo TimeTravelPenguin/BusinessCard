@@ -7,7 +7,7 @@
 // File Name: TextExtension.cs
 // 
 // Current Data:
-// 2020-11-24 12:09 PM
+// 2020-11-24 5:50 PM
 // 
 // Creation Date:
 // 2020-11-24 12:07 PM

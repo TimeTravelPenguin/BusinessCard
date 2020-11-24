@@ -17,6 +17,7 @@
       <Brush x:Key="BrushWindowBackground">#2b2b2b</Brush>
       <Brush x:Key="BrushLightBorder">#8a8a8a</Brush>
       <Brush x:Key="BrushText">#ededed</Brush>
+      <Brush x:Key="DarkControls">#3F3F46</Brush>
 
       <Style x:Key="UIFont" TargetType="{x:Type Label}">
         <Setter Property="FontSize" Value="12" />
@@ -36,6 +37,27 @@
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="Foreground" Value="{StaticResource BrushText}" />
         <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+      </Style>
+
+      <Style x:Key="DarkButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource DarkControls}" />
+        <Setter Property="Foreground" Value="{StaticResource BrushText}" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Button}">
+              <Border Background="{TemplateBinding Background}">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+          <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background" Value="{StaticResource BrushText}" />
+            <Setter Property="Foreground" Value="Black" />
+          </Trigger>
+        </Style.Triggers>
       </Style>
     </ResourceDictionary>
   </Application.Resources>

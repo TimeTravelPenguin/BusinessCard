@@ -7,8 +7,7 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:viewModels="clr-namespace:BusinessCard.ViewModels"
   Title="MainPageView"
-  d:DataContext="{d:DesignInstance Type=viewModels:DefaultPageViewModel,
-                                   IsDesignTimeCreatable=False}"
+  d:DataContext="{d:DesignInstance Type=viewModels:DefaultPageViewModel}"
   d:DesignHeight="450"
   d:DesignWidth="800"
   mc:Ignorable="d">
@@ -44,6 +43,9 @@
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
           </Grid.ColumnDefinitions>
           <Label
             Grid.Row="0"
@@ -58,6 +60,14 @@
             Grid.Column="1"
             Source="../../Assets/Images/tick.png"
             Stretch="None" />
+
+          <Button
+            Grid.Column="3"
+            Width="70"
+            Height="22"
+            Command="{Binding Ping}"
+            Content="Install"
+            Style="{StaticResource DarkButton}" />
         </Grid>
 
         <!--  Package Info  -->
@@ -133,18 +143,48 @@
     <!--  Right Column  -->
     <Grid Column="1" ZIndex="-1">
       <Grid.RowDefinitions>
-        <RowDefinition Height="1.25*" />
+        <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
-      <Grid Row="0" />
+      <Grid Margin="10" Row="0">
+        <StackPanel VerticalAlignment="Stretch">
+          <Label Content="Dependencies:" Style="{StaticResource UIFont}" />
+          <ListView
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Transparent"
+            ItemsSource="{Binding UserDetails.Credentials}">
+
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Style="{StaticResource UITextBlock}" Text="{Binding}" />
+              </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.ItemContainerStyle>
+              <Style TargetType="{x:Type ListViewItem}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Template">
+                  <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                      <ContentPresenter />
+                    </ControlTemplate>
+                  </Setter.Value>
+                </Setter>
+              </Style>
+            </ListView.ItemContainerStyle>
+
+          </ListView>
+        </StackPanel>
+      </Grid>
 
       <Border
         Grid.Row="1"
         Padding="10"
         Background="{StaticResource BrushMenuBar}"
         BorderBrush="{StaticResource BrushLightBorder}"
-        BorderThickness="0,1,0,0">
+        BorderThickness="0,2,0,0">
 
         <TextBlock Style="{StaticResource UICodeFont}" Text="{extensions:Text './../Assets/NugetText.txt'}" />
       </Border>

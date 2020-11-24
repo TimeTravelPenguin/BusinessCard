@@ -8,5 +8,3 @@ Adding package 'PhillipSmith.96.9.1' to 'packages.config'
 Successfully installed 'PhillipSmith.96.9.1' to WPFBusinessCard
 Executing nuget actions took 1.44 sec
 Time Elapsed: 00:00:02.6268355
-
-PM>

@@ -7,7 +7,7 @@
 // File Name: ViewModelBase.cs
 // 
 // Current Data:
-// 2020-11-23 11:38 PM
+// 2020-11-24 7:59 PM
 // 
 // Creation Date:
 // 2020-11-23 11:34 PM
@@ -49,7 +49,7 @@ namespace BusinessCard.ViewModels
     public ActionCommand MinimizeWindow { get; }
     public ActionCommand MaximizeWindow { get; }
 
-    protected ViewModelBase(Window window, ResizeMode resizeMode = ResizeMode.CanResizeWithGrip)
+    public ViewModelBase(Window window, ResizeMode resizeMode = ResizeMode.CanResizeWithGrip)
     {
       CloseWindow = new ActionCommand(window.Close);
       MinimizeWindow = new ActionCommand(() => window.WindowState = WindowState.Minimized);
