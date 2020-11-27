@@ -6,6 +6,7 @@
   xmlns:extensions="clr-namespace:BusinessCard.Extensions"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:viewModels="clr-namespace:BusinessCard.ViewModels"
+  xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
   Title="MainPageView"
   d:DataContext="{d:DesignInstance Type=viewModels:DefaultPageViewModel}"
   d:DesignHeight="450"
@@ -28,7 +29,6 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
-        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
       <!--  Upper-Left Information  -->
@@ -65,7 +65,7 @@
             Grid.Column="3"
             Width="70"
             Height="22"
-            Command="{Binding Ping}"
+            Command="{Binding UpdateGradesCommand}"
             Content="Install"
             Style="{StaticResource DarkButton}" />
         </Grid>
@@ -73,6 +73,7 @@
         <!--  Package Info  -->
         <Grid Row="1">
           <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -89,7 +90,6 @@
           <TextBlock
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             Style="{StaticResource UITextBlock}">
             Software Engineer with experience in C# WPF, .NET Framework and .NET Core, Python,
@@ -131,11 +131,54 @@
             </Label>
           </Grid>
 
+          <Grid Row="4">
+            <StackPanel VerticalAlignment="Stretch">
+              <Label
+                Content="Dependencies:"
+                FontWeight="Medium"
+                Style="{StaticResource UIFont}" />
+              <ListView
+                Padding="20,0,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="Transparent"
+                BorderThickness="0"
+                ItemsSource="{Binding UserDetails.Credentials}">
+
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <StackPanel>
+                      <TextBlock Style="{StaticResource UITextBlock}" Text="{Binding StringFormat='&#183; {0}'}" />
+                      <Label
+                        Margin="10,0,0,0"
+                        Content="No dependencies"
+                        Style="{StaticResource UIFont}" />
+                    </StackPanel>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <ListView.ItemContainerStyle>
+                  <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                      <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                          <ContentPresenter />
+                        </ControlTemplate>
+                      </Setter.Value>
+                    </Setter>
+                  </Style>
+                </ListView.ItemContainerStyle>
+
+              </ListView>
+            </StackPanel>
+          </Grid>
+
         </Grid>
       </Grid>
 
       <!--  Lower-Left Picture  -->
-      <Grid VerticalAlignment="Bottom" Row="2">
+      <Grid VerticalAlignment="Bottom" Row="1">
         <Image Source="../../Assets/Images/profile.png" />
       </Grid>
     </Grid>
@@ -143,44 +186,21 @@
     <!--  Right Column  -->
     <Grid Column="1" ZIndex="-1">
       <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
-      <Grid Margin="10" Row="0">
-        <StackPanel VerticalAlignment="Stretch">
-          <Label Content="Dependencies:" Style="{StaticResource UIFont}" />
-          <ListView
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            Background="Transparent"
-            ItemsSource="{Binding UserDetails.Credentials}">
+      <Grid Margin="10" Row="0" />
 
-            <ListView.ItemTemplate>
-              <DataTemplate>
-                <TextBlock Style="{StaticResource UITextBlock}" Text="{Binding}" />
-              </DataTemplate>
-            </ListView.ItemTemplate>
-
-            <ListView.ItemContainerStyle>
-              <Style TargetType="{x:Type ListViewItem}">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Template">
-                  <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ListViewItem}">
-                      <ContentPresenter />
-                    </ControlTemplate>
-                  </Setter.Value>
-                </Setter>
-              </Style>
-            </ListView.ItemContainerStyle>
-
-          </ListView>
-        </StackPanel>
+      <!--  LiveChart  -->
+      <Grid Margin="10,10" Row="1">
+        <wpf:CartesianChart Content="{Binding GradesScatterChart.Chart}" />
       </Grid>
 
+      <!--  NuGet Panel  -->
       <Border
-        Grid.Row="1"
+        Grid.Row="2"
         Padding="10"
         Background="{StaticResource BrushMenuBar}"
         BorderBrush="{StaticResource BrushLightBorder}"

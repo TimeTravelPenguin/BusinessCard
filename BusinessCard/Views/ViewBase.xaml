@@ -8,9 +8,9 @@
   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:viewModels="clr-namespace:BusinessCard.ViewModels"
-  Title=""
-  Width="800"
-  Height="494"
+  Title="Your title here"
+  Width="973"
+  Height="600"
   MinWidth="400"
   MinHeight="100"
   d:DataContext="{d:DesignInstance Type=viewModels:ViewModelBase}"
@@ -22,6 +22,8 @@
   WindowStartupLocation="CenterScreen"
   WindowStyle="None"
   mc:Ignorable="d">
+
+  <!--  Height:Width = 94:58  -->
 
   <Window.Resources>
     <Style x:Key="MenuBarOption" TargetType="{x:Type Button}">
