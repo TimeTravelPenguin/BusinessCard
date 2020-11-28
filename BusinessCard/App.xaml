@@ -7,7 +7,7 @@
   <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ControlStyles/MenuItemDark.xaml" />
+        <ResourceDictionary Source="ControlStyles/DarkControls.xaml" />
       </ResourceDictionary.MergedDictionaries>
 
       <FontFamily x:Key="MaterialIcons">pack://application:,,,/Font/#Material Icons</FontFamily>

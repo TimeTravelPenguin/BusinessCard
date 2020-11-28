@@ -60,6 +60,8 @@ namespace BusinessCard
         UserGrades = new ObservableCollection<Grade>(userGrades)
       };
 
+      currentPageVm.GradesScatterChart.ParseData();
+
       var viewModel = new ViewModelBase(view)
       {
         CurrentPage = new DefaultPageView

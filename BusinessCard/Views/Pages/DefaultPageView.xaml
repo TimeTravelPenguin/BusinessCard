@@ -4,6 +4,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:extensions="clr-namespace:BusinessCard.Extensions"
+  xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:viewModels="clr-namespace:BusinessCard.ViewModels"
   xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
@@ -186,15 +187,29 @@
     <!--  Right Column  -->
     <Grid Column="1" ZIndex="-1">
       <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
-      <Grid Margin="10" Row="0" />
+      <Grid Margin="10,0,10,10" Row="1">
+        <Slider
+          AutoToolTipPlacement="TopLeft"
+          AutoToolTipPrecision="0"
+          Maximum="1000"
+          Minimum="1"
+          Style="{DynamicResource DarkSliderStyle}"
+          Value="{Binding GradesScatterChart.SeriesRange, UpdateSourceTrigger=PropertyChanged}">
+          <i:Interaction.Triggers>
+            <i:EventTrigger EventName="PreviewMouseUp">
+              <i:InvokeCommandAction Command="{Binding UpdateChartRangeCommand}" />
+            </i:EventTrigger>
+          </i:Interaction.Triggers>
+        </Slider>
+      </Grid>
 
       <!--  LiveChart  -->
-      <Grid Margin="10,10" Row="1">
+      <Grid Margin="10,10,10,0" Row="0">
         <wpf:CartesianChart Content="{Binding GradesScatterChart.Chart}" />
       </Grid>
 

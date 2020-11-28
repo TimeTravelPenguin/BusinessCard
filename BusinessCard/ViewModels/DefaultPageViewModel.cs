@@ -7,7 +7,7 @@
 // File Name: DefaultPageViewModel.cs
 // 
 // Current Data:
-// 2020-11-27 6:17 PM
+// 2020-11-28 5:05 PM
 // 
 // Creation Date:
 // 2020-11-23 11:34 PM
@@ -16,6 +16,7 @@
 
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
 using BusinessCard.LiveChartModels;
 using BusinessCard.LiveChartModels.DataReader;
 using BusinessCard.Models;
@@ -48,16 +49,24 @@ namespace BusinessCard.ViewModels
       set => SetValue(ref _gradesScatterChart, value);
     }
 
+    public ICommand UpdateChartRangeCommand { get; }
+
     public DefaultPageViewModel(Window window, ResizeMode resizeMode = ResizeMode.CanResizeWithGrip)
       : base(window, resizeMode)
     {
       // Please hire me :)
       UpdateGradesCommand = new ActionCommand(UpdateGrades);
+      UpdateChartRangeCommand = new ActionCommand(UpdateChartRange);
+    }
+
+    private void UpdateChartRange()
+    {
+      GradesScatterChart.NotifyChartRangeChange();
     }
 
     public void UpdateGrades()
     {
-      GradesScatterChart.ScatterSeriesCollection.Clear();
+      GradesScatterChart.ChartSeriesCollection.Clear();
 
       GradesScatterChart.ParseData();
       OnPropertyChanged(nameof(GradesScatterChart));
